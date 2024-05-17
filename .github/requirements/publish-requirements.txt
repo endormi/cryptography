@@ -8,10 +8,6 @@ annotated-types==0.6.0 \
     --hash=sha256:0641064de18ba7a25dee8f96403ebc39113d0cb953a01429249d5c7564666a43 \
     --hash=sha256:563339e807e53ffd9c267e99fc6d9ea23eb8443c08f112651963e24e22f84a5d
     # via pydantic
-appdirs==1.4.4 \
-    --hash=sha256:7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41 \
-    --hash=sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128
-    # via sigstore
 backports-tarfile==1.1.0 \
     --hash=sha256:91d59138ea401ee2a95e8b839c1e2f51f3e9ca76bdba8b6a29f8d773564686a8 \
     --hash=sha256:b2f4df351db942d094db94588bbf2c6938697a5f190f44c934acc697da56008b
@@ -250,6 +246,10 @@ importlib-metadata==7.1.0 \
     # via
     #   keyring
     #   twine
+importlib-resources==5.13.0 \
+    --hash=sha256:82d5c6cca930697dbbd86c93333bb2c2e72861d4789a11c2662b933e5ad2b528 \
+    --hash=sha256:9f7bd0c97b79972a6cce36a366356d16d5e13b09679c11a58f1014bfdf8e64b2
+    # via sigstore
 jaraco-classes==3.4.0 \
     --hash=sha256:47a024b51d0239c0dd8c8540c6c7f484be3b8fcf0b2d85c13825780d3b3f3acd \
     --hash=sha256:f662826b6bed8cace05e7ff873ce0f9283b5c924470fe664fff1c2f00f581790
@@ -400,6 +400,14 @@ pkginfo==1.10.0 \
     --hash=sha256:5df73835398d10db79f8eecd5cd86b1f6d29317589ea70796994d49399af6297 \
     --hash=sha256:889a6da2ed7ffc58ab5b900d888ddce90bce912f2d2de1dc1c26f4cb9fe65097
     # via twine
+platformdirs==4.2.2 \
+    --hash=sha256:2d7a1657e36a80ea911db832a8a6ece5ee53d8de21edd5cc5879af6530b1bfee \
+    --hash=sha256:38b7b51f512eed9e84a22788b4bce1de17c0adb134d6becb09836e37d8654cd3
+    # via sigstore
+pyasn1==0.6.0 \
+    --hash=sha256:3a35ab2c4b5ef98e17dfdec8ab074046fbda76e281c5a706ccd82328cfc8f64c \
+    --hash=sha256:cca4bb0f2df5504f02f6f8a775b6e416ff9b0b3b16f7ee80b5a3153d9b804473
+    # via sigstore
 pycparser==2.22 \
     --hash=sha256:491c8be9c040f5390f5bf44a5b07752bd07f56edf992381b05c701439eec10f6 \
     --hash=sha256:c3702b6d3dd8c7abc1afa565d7e63d53a1d0bd86cdc24edd75470f4de499cfcc
@@ -532,6 +540,10 @@ rfc3986==2.0.0 \
     --hash=sha256:50b1502b60e289cb37883f3dfd34532b8873c7de9f49bb546641ce9cbd256ebd \
     --hash=sha256:97aacf9dbd4bfd829baad6e6309fa6573aaf1be3f6fa735c8ab05e46cecb261c
     # via twine
+rfc8785==0.1.2 \
+    --hash=sha256:4668c70e02f4cf96327d60375d2f1f21958830ff777e0e414424a794323521a1 \
+    --hash=sha256:c4e92e9ecc828bef2aa7dba1de8ac983511f7532a0df11c770d39099a25cf201
+    # via sigstore
 rich==13.7.1 \
     --hash=sha256:4edbae314f59eb482f54e9e30bf00d33350aaa94f4bfcd4e9e3110e64d0d7222 \
     --hash=sha256:9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432
@@ -542,31 +554,29 @@ secretstorage==3.3.3 \
     --hash=sha256:2403533ef369eca6d2ba81718576c5e0f564d5cca1b58f73a8b23e7d4eeebd77 \
     --hash=sha256:f356e6628222568e3af06f2eba8df495efa13b3b63081dafd4f7d9a7b7bc9f99
     # via keyring
-securesystemslib==0.31.0 \
-    --hash=sha256:549d70f7be6460252d016f03edc5ec0128fee56af55d2b863a5db14541ddbf18 \
-    --hash=sha256:c1594afbcd5db198ec90c487e1720154afb71743d9f4bccf3dfda84de650c478
-    # via
-    #   sigstore
-    #   tuf
-sigstore==2.1.5 \
-    --hash=sha256:7771153c5ac5a51d6556481f4680dfb602cb5c32c94fe56f87ff1801b8a8f243 \
-    --hash=sha256:86d3ba41135004818c20d09d120140d59d4bd535a092690ff46478047bb8df5b
+securesystemslib==1.0.0 \
+    --hash=sha256:50f5053e274066502da7785dfd12b21e61131ca6e8b57ecedd2da0d1e9cd66c1 \
+    --hash=sha256:a6d118c24eae8227a1cf2d9c173f47956709958f601eeaa38e86f6505a31455e
+    # via tuf
+sigstore==3.0.0 \
+    --hash=sha256:6cc7dc92607c2fd481aada0f3c79e710e4c6086e3beab50b07daa9a50a79d109 \
+    --hash=sha256:a6a9538a648e112a0c3d8092d3f73a351c7598164764f1e73a6b5ba406a3a0bd
     # via -r publish-requirements.in
-sigstore-protobuf-specs==0.3.1 \
-    --hash=sha256:c40b61975b957ae906eb29a5bc7040ec015b68b6b46005cc5805e629493e8dec \
-    --hash=sha256:ea6d7325af70019b6639e0fd16ef6f78511645d46dd3f9876fb008641d80a125
+sigstore-protobuf-specs==0.3.2 \
+    --hash=sha256:50c99fa6747a3a9c5c562a43602cf76df0b199af28f0e9d4319b6775630425ea \
+    --hash=sha256:cae041b40502600b8a633f43c257695d0222a94efa1e5110a7ec7ada78c39d99
     # via sigstore
-sigstore-rekor-types==0.0.11 \
-    --hash=sha256:791a696eccd5d07c933cc11d46dea22983efedaf5f1068734263ce0f25695bba \
-    --hash=sha256:b63b4dc6dd70a3f69b236575146a18c357a3743172a03e8ceb18bbc25ef2563b
+sigstore-rekor-types==0.0.13 \
+    --hash=sha256:377fee942d5fc66437a4f54599472157149affaece9bbc7deb05e5b42f34ceba \
+    --hash=sha256:63e9306a26931ed74411911948c250da7c5adc51c53507227738170424e6ae2d
     # via sigstore
 six==1.16.0 \
     --hash=sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926 \
     --hash=sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254
     # via python-dateutil
-tuf==3.1.1 \
-    --hash=sha256:73b3c89a0acdfe90434bba3118c90c584ef1c56bc0c4565852e917408b774130 \
-    --hash=sha256:d6441d11bc9a928cb82cf571519bb99e70ed3ea6fd5a52ce116a8e121023f7ef
+tuf==5.0.0 \
+    --hash=sha256:91a4ca279c33222ac1451a5b0bcdcbbf12c965e0d22278bead5bf8d3ab95117a \
+    --hash=sha256:9c5d87d3822ae2f83c756d5a208c6942a2829ae1ea63c18c363124497d04da4f
     # via sigstore
 twine==5.0.0 \
     --hash=sha256:89b0cc7d370a4b66421cc6102f269aa910fe0f1861c124f573cf2ddedbc10cf4 \
